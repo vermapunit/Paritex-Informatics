@@ -1,38 +1,24 @@
-// script.js – Razorpay Payment Integration + Contact Form Placeholder
+// script.js - Razorpay Payment Integration
 
-// Razorpay Payment
-document.getElementById("pay-now-btn").addEventListener("click", function (e) {
-  e.preventDefault();
-
+function payNow() {
   const options = {
-    key: "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
-    amount: 10000, // amount in paise (10000 = ₹100)
+    key: "rzp_test_YourKeyHere", // Replace with your Razorpay key
+    amount: 20000, // Amount in paise (e.g., ₹200)
     currency: "INR",
     name: "Paritex Informatics",
-    description: "Advance Payment for Service",
-    image: "https://yourdomain.com/logo.png", // optional
+    description: "Service Payment",
     handler: function (response) {
-      alert("Payment successful. Payment ID: " + response.razorpay_payment_id);
+      alert("Payment successful. ID: " + response.razorpay_payment_id);
     },
     prefill: {
-      name: "",
-      email: "",
-      contact: ""
-    },
-    notes: {
-      service: "Website Development"
+      name: "Customer",
+      email: "example@gmail.com",
+      contact: "8630207823"
     },
     theme: {
-      color: "#3f51b5"
+      color: "#2575fc"
     }
   };
-
   const rzp = new Razorpay(options);
   rzp.open();
-});
-
-// Contact Form Submission (placeholder)
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-  alert("Thank you! Your message has been received.");
-});
+}
